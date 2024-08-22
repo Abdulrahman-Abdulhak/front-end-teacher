@@ -1,0 +1,113 @@
+*, *::after, *::before {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    background-color: hsl(262, 58%, 8%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+
+}
+
+.wave {
+
+    width: fit-content;
+    padding: 1em;
+    padding-bottom: 2em;
+    font-size: 7vw;
+    margin: auto;
+    background-color: black;
+    text-transform: capitalize;
+    font-weight: 900;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.wave::after {
+
+    content: '';
+    width: 100%;
+    height: 4rem;
+    background-color: black;
+    box-shadow: 0 -2rem 2rem rgba(0, 0, 0);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+
+}
+
+.wave span {
+
+    --val : -1;
+    --deg: 0;
+    --delay: .25;
+    transform: translateY(0);
+    display: inline-block;
+    position: relative;
+
+    animation: wave 4.5s forwards infinite ease-in-out;
+    animation-delay: calc(var(--item) * var(--delay) * 1s);
+
+}
+
+.wave span::before {
+
+    --val : -2;
+    --deg: 180;
+    position: absolute;
+    top: calc(100% - .5rem);
+    left: 0;
+    transform: rotateX(180deg) translateY(0);
+    color: rgba(255, 255, 255, 0.2);
+
+    animation: wave 4.5s forwards infinite ease-in-out;
+    animation-delay: calc(var(--item) * var(--delay) * 1s);
+
+}
+
+.wave span:nth-child(1):before {
+    content: "l";
+}
+.wave span:nth-child(2):before {
+    content: "e";
+}
+.wave span:nth-child(3):before {
+    content: "a";
+}
+.wave span:nth-child(4):before {
+    content: "r";
+}
+.wave span:nth-child(5):before {
+    content: "n";
+}
+.wave span:nth-child(6):before {
+    content: " ";
+}
+.wave span:nth-child(7):before {
+    content: "c";
+}
+.wave span:nth-child(8):before {
+    content: "s";
+}
+.wave span:nth-child(9):before {
+    content: "s";
+}
+
+@keyframes wave {
+    5% {
+        transform: rotateX(calc(var(--deg) * 1deg)) translateY(calc(var(--val) * .5em));
+    }
+    10% {
+        transform: rotateX(calc(var(--deg) * 1deg)) translateY(0);
+    }
+    100% {
+        transform: rotateX(calc(var(--deg) * 1deg)) translateY(0);
+    }
+}

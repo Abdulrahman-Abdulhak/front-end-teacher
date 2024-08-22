@@ -1,0 +1,50 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.sky {
+  height: 40%;
+  background-color: skyblue;
+}
+
+.grass {
+  height: 30%;
+  background-color: green;
+}
+
+.road {
+  position: relative;
+
+  height: 30%;
+  background-color: darkslategrey;
+
+  display: grid;
+  place-items: center;
+}
+
+.line {
+  width: 100%;
+
+  border-top: white 5px dashed;
+  border-bottom: white 5px dashed;
+}
+
+.taxi img {
+  height: 100px;
+}
+
+.taxi {
+  position: absolute;
+  top: 5%;
+  left: 20px;
+
+  animation: move 3s ease-in 0.5s forwards;
+}
+
+@keyframes move {
+  to {
+    left: 100%;
+  }
+}

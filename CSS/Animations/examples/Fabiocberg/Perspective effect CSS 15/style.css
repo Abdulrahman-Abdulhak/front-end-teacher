@@ -1,0 +1,62 @@
+*, *::before, *::after {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+
+}
+
+.container {
+
+    perspective: 1000px;
+
+}
+
+.story {
+
+    background-color: hsl(152deg 65% 27%);
+    background-image: linear-gradient(hsl(152deg 65% 27%) 0%, hsl(152deg 65% 27%) 50%, black 100%);
+    transform: rotateX(40deg) translateY(-100%) scale(.9);
+    transition: all .6s cubic-bezier(0.4, 0, 1, 1);
+
+}
+
+.story:hover {
+
+    transform: rotateX(0) translateY(0) scale(1);
+
+}
+
+.info {
+
+    padding: 2em 1em;
+    color: white;
+    max-width: 45ch;
+    font-family: sans-serif;
+
+}
+
+.info h3 {
+
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 4px white;
+
+}
+
+.info p {
+
+    margin-top: 1em;
+
+}

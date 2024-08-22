@@ -1,0 +1,119 @@
+*, *::after, *::before {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    min-height: 100vh;
+    background-color: #3FAF82;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input {
+
+    position: absolute;
+    top: -100%;
+    left: -100%;
+
+}
+
+label {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    --time: 1s;
+
+}
+
+label div {
+
+    width: 6em;
+    height: .5em;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.39);
+    margin-block: .5em;
+    transform: scale(1);
+    opacity: 1;
+    transition: all .2s ease-in-out;
+    transition-delay: calc(var(--time) * .5);
+
+}
+
+.top {
+
+    --dir: 1;
+    --deg: 135;
+    z-index: 3;
+
+}
+
+.middle {
+    z-index: 2;
+}
+
+.bottom {
+
+    --dir: -1;
+    --deg: 45;
+    z-index: 1;
+
+}
+
+input:checked + label .middle {
+
+    transform: scale(0);
+    opacity: 0;
+    transition-delay: 0s;
+
+}
+
+input:not(:checked) + label div:not(.middle) {
+
+    animation: moveAndRotate2 var(--time) forwards;
+
+}
+
+input:checked + label div:not(.middle) {
+
+    animation: moveAndRotate1 var(--time) forwards;
+
+}
+
+@keyframes moveAndRotate1 {
+    
+    0% {
+        transform: translate(0) rotate(0);
+    }
+    50% {
+        transform: translateY(calc(var(--dir) * 1.5em));
+    }
+    100% {
+        transform: translateY(calc(var(--dir) * 1.5em)) rotate(calc(var(--deg) * 1deg));
+    }
+
+}
+
+@keyframes moveAndRotate2 {
+    
+    0% {
+        transform: translateY(calc(var(--dir) * 1.5em)) rotate(calc(var(--deg) * 1deg));
+    }
+    50% {
+        transform: translateY(calc(var(--dir) * 1.5em));
+    }
+    100% {
+        transform: translate(0) rotate(0);
+    }
+
+}

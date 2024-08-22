@@ -1,0 +1,181 @@
+*, *::before, *::after {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #272C34;
+
+}
+
+.container {
+
+    --time: 4s;
+
+    background-color: #7ddffc;
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 1;
+    position: relative;
+    display: flex;
+    animation: opacity var(--time) infinite forwards ease-in;
+
+}
+
+.sand {
+
+    background-color: #f0de75;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+
+}
+
+.sun {
+
+    background-color: #ffef00;  /* later #ffef00 */
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    position: absolute;
+    left: 0em;
+    top: 3em;
+    transform-origin: 7.5em 10em;
+    transform: rotate(0deg);
+    animation: sun var(--time) infinite forwards ease-in;
+
+}
+
+
+.pyramid {
+
+    align-self: center;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    overflow: visible;
+    z-index: 1;
+
+}
+
+.left {
+
+    display: inline-block;
+    background-color: #f3f3f3;
+    width: 5em;
+    height: 5em;
+    clip-path: polygon(80% 0, 0 100%, 100% 100%);
+    transform: translateX(10%);
+    animation: left var(--time) infinite forwards ease-in;
+
+}
+
+.right {
+
+    display: inline-block;
+    background-color: #dedbdb;
+    width: 5em;
+    height: 5em;
+    clip-path: polygon(0 0, 20% 100%, 100% 100%);
+    transform: translateX(-10%);
+    animation: right var(--time) infinite forwards ease-in;
+
+}
+
+.shadow {
+
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 15em;
+    height: 4em;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    clip-path: polygon(80% 0, 20% 0, 100% 40%);
+    animation: shadow var(--time) infinite forwards ease-in;
+
+}
+
+@keyframes sun {
+
+    0% {
+        background-color: #fcc803;
+        transform: rotate(-25deg);
+    }
+    25%, 50%{
+        background-color: #ffef00;
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(95deg);
+    }
+
+}
+
+@keyframes shadow {
+
+    0% {
+        clip-path: polygon(80% 0, 20% 0, 100% 0);
+    }
+    25%, 50% {
+        clip-path: polygon(80% 0, 20% 0, 100% 40%);
+    }
+    60% {
+        clip-path: polygon(80% 0, 20% 0, 50% 75%);
+    }
+    74% {
+        clip-path: polygon(80% 0, 20% 0, 0 40%);
+    }
+    100% {
+        clip-path: polygon(80% 0, 20% 0, 0 0);
+    }
+
+}
+
+@keyframes left {
+
+    0%, 60% {
+        background-color: #f3f3f3;
+    }
+    75%, 100% {
+        background-color: #dedbdb;
+    }
+
+}
+
+@keyframes right {
+
+    0%, 25% {
+        background-color: #dedbdb;
+    }
+    60%, 100% {
+        background-color: #f3f3f3;
+    }
+    
+}
+
+@keyframes opacity {
+
+    0%, 100% {
+        opacity: 0;
+    }
+    5%, 90% {
+        opacity: 1;
+    }
+
+}

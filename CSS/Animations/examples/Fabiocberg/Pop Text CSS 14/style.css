@@ -1,0 +1,45 @@
+*, *::after, *::before {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+
+}
+
+.pop-outin {
+
+    color: black;
+    font-size: 3.4em;
+    animation: pop 3s infinite ease-in-out;
+
+}
+
+@keyframes pop {
+
+    0%, 100% {
+        transform: scale(1);
+        color: black;
+        text-shadow: none;
+    }
+    30%, 70% {
+
+        transform: scale(1);
+        color: black;
+        text-shadow: none;
+
+    }
+    47.5%, 52.5% {
+        transform: scale(2);
+        color: red;
+        text-shadow: 1rem .5rem .1rem hsl(0, 0%, 50%);
+    }
+
+}
